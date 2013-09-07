@@ -14,7 +14,7 @@ public class AccountServlet extends HttpServlet {
     public AccountServlet() {
         super();
         // TODO Auto-generated constructor stub
-        // testing
+        // testing one, two, three...
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
