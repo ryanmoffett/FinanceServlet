@@ -27,8 +27,7 @@ public class Deposit extends HttpServlet {
 		String deposit = request.getParameter("deposit");
 		Double amount = Double.parseDouble(deposit.replaceAll(",",""));
 		Account account = (Account) request.getSession().getAttribute("Account");
-		GregorianCalendar date = new GregorianCalendar();
-		account.makeDeposit("Deposit", amount, date.get(GregorianCalendar.YEAR), date.get(GregorianCalendar.MONTH), date.get(GregorianCalendar.DAY_OF_MONTH));
+		account.makeDeposit("insert description", amount);
 		request.getSession().setAttribute("Account", account);
 		response.sendRedirect("transactionComplete.jsp");
 	}

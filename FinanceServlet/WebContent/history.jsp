@@ -25,7 +25,7 @@ Current Funds: <%=a.getFunds() %>
 Your history:
 <%
 for (int i=0;i<a.getHistory().size();i++){ %><br>
-	<% out.println(a.getHistory().get(i).getWhere()+" "+a.getHistory().get(i).getAmount()
+	<% out.println(a.getHistory().get(i).getTransaction()+" "+a.getHistory().get(i).getAmount()
 			+" "+a.getHistory().get(i).getMonth()+"/"+a.getHistory().get(i).getDay()+"/"
 			+a.getHistory().get(i).getYear()); %>
 <%}%>

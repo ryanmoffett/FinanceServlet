@@ -21,15 +21,15 @@
 Your<%if(flag==null){out.println();}else{if(flag.equals((String)"deposit")){out.println(" deposit");}else{out.println(" withdraw");}} %> history from <%=fromYear %> to <%=toYear %>:
 <%
 if(flag==null){for (int i=0;i<a.getHistory(fromYear,toYear).size();i++){%> <br>
-	<% out.println(a.getHistory(fromYear,toYear).get(i).getWhere()+" "+a.getHistory(fromYear,toYear).get(i).getAmount()
+	<% out.println(a.getHistory(fromYear,toYear).get(i).getTransaction()+" "+a.getHistory(fromYear,toYear).get(i).getAmount()
 			+" "+a.getHistory(fromYear,toYear).get(i).getMonth()+"/"+a.getHistory(fromYear,toYear).get(i).getDay()+"/"
 			+a.getHistory(fromYear,toYear).get(i).getYear());} %>
 <%}else{if(flag.equals((String)"deposit")){for (int i=0;i<a.getDepositHistory(fromYear,toYear).size();i++){%><br>
-	<% out.println(a.getDepositHistory(fromYear,toYear).get(i).getWhere()+" "+a.getDepositHistory(fromYear,toYear).get(i).getAmount()
+	<% out.println(a.getDepositHistory(fromYear,toYear).get(i).getTransaction()+" "+a.getDepositHistory(fromYear,toYear).get(i).getAmount()
 			+" "+a.getDepositHistory(fromYear,toYear).get(i).getMonth()+"/"+a.getDepositHistory(fromYear,toYear).get(i).getDay()+"/"
 			+a.getDepositHistory(fromYear,toYear).get(i).getYear());} %>
 <%}else{for (int i=0;i<a.getCheckHistory(fromYear,toYear).size();i++){ %><br>
-	<% out.println(a.getCheckHistory(fromYear,toYear).get(i).getWhere()+" "+a.getCheckHistory(fromYear,toYear).get(i).getAmount()
+	<% out.println(a.getCheckHistory(fromYear,toYear).get(i).getTransaction()+" "+a.getCheckHistory(fromYear,toYear).get(i).getAmount()
 			+" "+a.getCheckHistory(fromYear,toYear).get(i).getMonth()+"/"+a.getCheckHistory(fromYear,toYear).get(i).getDay()+"/"
 			+a.getCheckHistory(fromYear,toYear).get(i).getYear());} %>
 <%}} %>

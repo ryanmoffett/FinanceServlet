@@ -2,34 +2,46 @@ package finance;
 import java.util.*;
 public class Transaction {
 	
-	public String where;
+	public String transaction;
+	public String description;
 	public double amount;
 	public GregorianCalendar date;
+	public int month;
+	public int day;
+	public int year;
 	
-	public Transaction(String where, double amount, GregorianCalendar d){
-		this.where = where;
+	public Transaction(String transaction, String description, double amount, int month, int day, int year){
+		this.description = description;
 		this.amount = amount;
-		this.date = d;
+		this.month = month;
+		this.day = day;
+		this.year = year;
+		this.transaction = transaction;
+	}
+	
+	public String getTransaction(){
+		return this.transaction;
 	}
 	
 	public int getYear(){
-		return date.get(Calendar.YEAR);
+		return this.year;
 	}
 	
 	public int getMonth(){
-		return date.get(Calendar.MONTH);
+		return this.month;
 	}
 	
 	public int getDay(){
-		return date.get(Calendar.DAY_OF_MONTH);
+		return this.day;
 	}
 	
-	public String getWhere(){
-		return this.where;
-	}
 	
 	public double getAmount(){
 		return this.amount;
+	}
+	
+	public String getDescription(){
+		return this.description;
 	}
 
 }

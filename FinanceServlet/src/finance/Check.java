@@ -2,10 +2,13 @@ package finance;
 import java.util.*;
 public class Check extends Transaction{
 	
-	public Check(String store, double spent, GregorianCalendar d){
-		super(store,spent,d);
+	public Check(String transaction, String description, double spent, int month, int day, int year){
+		super(transaction,description,spent,month,day,year);
 	}
 	
+	public String getTransaction(){
+		return super.getTransaction();
+	}
 	public int getYear(){
 		return super.getYear();
 	}
@@ -18,12 +21,12 @@ public class Check extends Transaction{
 		return super.getDay();
 	}
 	
-	public String getWhere(){
-		return super.getWhere();
-	}
-	
 	public double getAmount(){
 		return super.getAmount();
+	}
+	
+	public String getDescription(){
+		return super.getDescription();
 	}
 
 }

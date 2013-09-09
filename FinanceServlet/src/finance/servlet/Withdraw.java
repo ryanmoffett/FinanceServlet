@@ -25,8 +25,7 @@ public class Withdraw extends HttpServlet {
 		String withdraw = request.getParameter("withdraw");
 		Double amount = Double.parseDouble(withdraw.replaceAll(",",""));
 		Account account = (Account) request.getSession().getAttribute("Account");
-		GregorianCalendar date = new GregorianCalendar();
-		account.writeCheck("Withdraw", amount, date.get(GregorianCalendar.YEAR), date.get(GregorianCalendar.MONTH), date.get(GregorianCalendar.DAY_OF_MONTH));
+		account.writeCheck("insert description", amount);
 		request.getSession().setAttribute("Account", account);
 		response.sendRedirect("transactionComplete.jsp");
 	}
