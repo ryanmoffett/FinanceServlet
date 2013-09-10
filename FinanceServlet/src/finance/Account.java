@@ -23,10 +23,9 @@ public class Account {
 	ResultSet resultSet;
 	int flag;
 	
-	public Account(String user){
-		this.user = user.replace(" ", "");
+	public Account(String accountholder){
+		this.user = accountholder.replace(" ", "");
 		this.flag = 0;
-		this.user = user;
 		this.connection = null;
 		this.statement = null;
 		this.resultSet = null;
@@ -85,6 +84,7 @@ public class Account {
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/finance","root","root");
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery("SELECT funds FROM accounts WHERE name = '"+this.user+"';");
+			resultSet.next();
 			funds = resultSet.getDouble("funds");
 		}
 		catch(Exception error){
@@ -111,7 +111,7 @@ public class Account {
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery("SELECT funds FROM accounts WHERE name = '"+this.user+"';");
 			resultSet.next();
- 			funds = resultSet.getBigDecimal("funds").add(amount);
+ 			funds = resultSet.getBigDecimal("funds").subtract(amount);
 			statement.execute("UPDATE accounts SET funds = "+funds+" WHERE name = '"+this.user+"';");
 			statement.execute("INSERT INTO "+this.user+"_history (transaction, description, amount, month, day, y) VALUES ('Withdraw', '"
 					+description+"', "+amount+", "+month+", "+day+", "+year+");");
