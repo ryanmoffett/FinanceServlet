@@ -45,7 +45,7 @@ public class Account {
 			if(flag==0){
 				statement.execute("INSERT INTO accounts (name, funds) VALUES ('"+this.user+"',0)");
 				statement.execute("CREATE TABLE "+this.user+"_history (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, "
-						+ "transaction VARCHAR(100), description VARCHAR(200), amount DECIMAL, month INT, day INT, y INT);");
+						+ "transaction VARCHAR(100), description VARCHAR(200), amount DECIMAL(10,2), month INT, day INT, y INT);");
 			}
 			
 			
