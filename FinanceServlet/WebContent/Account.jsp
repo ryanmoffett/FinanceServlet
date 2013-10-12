@@ -10,7 +10,7 @@
 <%Account a = (Account) request.getSession().getAttribute("Account"); %>
 Account Screen
 <br>
-Welcome to your account (with database!), <%=session.getAttribute("Account Holder") %>. What do you want to do?
+Welcome to your account (with database!), <%=session.getAttribute("Account Holder") %>. What do you want to do? test
 <br>
 Current Funds: <%=a.getFunds() %>
 <br>
