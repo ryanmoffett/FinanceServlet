@@ -59,24 +59,4 @@ $(document).ready(function(){
 		$('#logoutTab').toggle();
 	});
 	
-	
-//	var xmlHttpRequest;
-//	if(window.XMLHttpRequest){
-//		xmlHttpRequest = new XMLHttpRequest();
-//	} else if (window.ActiveXObject){
-//		xmlHttpRequest = new ActiveXObject("MICROSOFT.XMLHTTP");
-//	}
-//	
-//	function sendDepositToServer(){
-//		xmlHttpRequest.open("GET","Deposit?deposit="+document.getElementById('deposit').value,true);
-//		xmlHttpRequest.onreadystatechange = receiveMessageFromServer;
-//		xmlHttpRequest.send();
-//		document.getElementById('deposit').value="";
-//	}
-//	
-//	function receiveMessageFromServer(){
-//		if (xmlHttpRequest.readyState==4 && xmlHttpRequest.status==200){
-//			document.getElementById('fundsdisplay').value = xmlHttpRequest.responseXML.getElementsByTagName("responseFromServer")[0].text;
-//		}
-//	}
 });
