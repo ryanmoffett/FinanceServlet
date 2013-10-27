@@ -22,17 +22,20 @@ public class Deposit extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String deposit = request.getParameter("deposit");
 		Double amount = Double.parseDouble(deposit.replaceAll(",",""));
 		Account account = (Account) request.getSession().getAttribute("Account");
 		account.makeDeposit("insert description", amount);
 		request.getSession().setAttribute("Account", account);
-		response.sendRedirect("transactionComplete.jsp");
+		account = (Account) request.getSession().getAttribute("Account");
+		response.setContentType("text/xml");
+		response.getWriter().println("<responseFromServer>"+account.getFunds()+"</responseFromServer>");
+		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 

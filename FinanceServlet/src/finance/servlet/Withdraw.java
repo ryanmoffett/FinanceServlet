@@ -20,17 +20,19 @@ public class Withdraw extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String withdraw = request.getParameter("withdraw");
 		Double amount = Double.parseDouble(withdraw.replaceAll(",",""));
 		Account account = (Account) request.getSession().getAttribute("Account");
 		account.writeCheck("insert description", amount);
 		request.getSession().setAttribute("Account", account);
-		response.sendRedirect("transactionComplete.jsp");
+		account = (Account) request.getSession().getAttribute("Account");
+		response.setContentType("text/xml");
+		response.getWriter().println("<responseFromServer>"+account.getFunds()+"</responseFromServer>");
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 

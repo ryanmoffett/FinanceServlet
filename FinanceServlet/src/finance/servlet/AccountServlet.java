@@ -18,7 +18,7 @@ public class AccountServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getParameter("act");
+		String action = request.getParameter("action");
 		if (action.equals((String)"Deposit")){
 			response.sendRedirect("deposit.jsp");
 		}
